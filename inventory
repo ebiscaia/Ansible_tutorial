@@ -1,4 +1,4 @@
-192.168.1.144
-192.168.1.141
-192.168.1.142
-192.168.1.143
+192.168.1.144  apache_pkg=apache2 php_pkg=libapache2-mod-php
+192.168.1.141  apache_pkg=apache2 php_pkg=libapache2-mod-php
+192.168.1.142  apache_pkg=apache2 php_pkg=libapache2-mod-php 
+192.168.1.143  php_pkg=php8-apache2 apache_pkg=apache2
