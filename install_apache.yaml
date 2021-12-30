@@ -4,41 +4,12 @@
   become: true
   tasks:
 
-# Ubuntu and Debian
+# Update repos and installs apache and php
 
-  - name: update apt repos
-    apt:
-      update_cache: yes
-    when: ansible_distribution in ["Ubuntu", "Debian"]
-
-
-  - name: install apache2 package
-    apt: 
-      name: apache2
+  - name: install apache2 and php packages
+    package:
+      update_cache: yes 
+      name: 
+        - "{{apache_pkg}}" 
+        - "{{php_pkg}}"
       state: latest
-    when: ansible_distribution in ["Debian", "Ubuntu"]
-
-  - name: install php support for apache
-    apt:
-      name: libapache2-mod-php
-      state: latest
-    when: ansible_distribution in ["Ubuntu", "Debian"]
-  
-
-# Alpine
-  - name: update apk repos
-    apk:
-      update_cache: yes
-    when: ansible_distribution in ["Alpine"]
-
-  - name: install apache2 package
-    apk:
-      name: apache2
-      state: latest
-    when: ansible_distribution in ["Alpine"]
-
-  - name: install php support for apache
-    apk:
-      name: php8-apache2
-      state: latest
-    when: ansible_distribution in ["Alpine"]
